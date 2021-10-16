@@ -39,4 +39,8 @@ public  static CommandeClient toEntity(CommandeClientDTO commandeclientDto){
 	commandeclient.setEtatCommande(commandeclientDto.getEtatCommande());
 	return commandeclient;
 }
+
+public boolean isCommandeClientLivree(){
+	return EtatCommande.LIVREE.equals(this.etatCommande);
+}
 }

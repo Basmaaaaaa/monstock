@@ -88,6 +88,10 @@ public class CommandeClientServiceImpl implements CommandeClientService {
 
     @Override
     public void delete(Integer id) {
-
+        if(id==null){
+            log.error("Commande Client ID is null");
+        }
+        commandeClientRepository.delete(id);
     }
+
 }

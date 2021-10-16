@@ -15,10 +15,11 @@ import java.util.Optional;
 @Service
 public class ApplicationUserDetailsService implements UserDetailsService {
     @Autowired
-    private UtilisateurRepository utilisateurRepository;
+    private UtilisateurRepository service;
     @Override
+    //on va charger l'user par son email
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-        Optional<Utilisateur> utilisateur=utilisateurRepository.findByEmail("email");
+        Optional<Utilisateur> utilisateur=service.findByEmail(email);
         return new User(utilisateur.get().getEmail(),
                 utilisateur.get().getPassword(),
                 Collections.emptyList());
